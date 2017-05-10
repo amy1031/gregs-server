@@ -2,6 +2,7 @@ function HousesController() {
     var houseService = new HousesService()
 
     this.createHouse = function(e) {
+       // debugger
         e.preventDefault()
 
         var house = {

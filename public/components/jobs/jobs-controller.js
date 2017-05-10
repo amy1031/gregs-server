@@ -15,11 +15,6 @@ function JobsController() {
         }
 
         jobService.createJob(job)
-            
-        jobService.jobHouse() 
-            .then(function(data) {
-                drawJobs(data)
-            })
     }
     this.getJobs = function() {
             jobService.getJobs() 
