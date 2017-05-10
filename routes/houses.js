@@ -27,7 +27,6 @@ function createHouse(req, res, next) {
     })
 }
 
-
 function deleteHouse(req, res, next) {
     var id = req.params.id
     var removeHouse = req.body

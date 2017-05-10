@@ -20,6 +20,12 @@ h2 {
   text-transform: capitalize;
 }
 
+h2.form {
+  font-family: Rajdhani;
+  text-transform: uppercase;
+  font-size: 30px;
+}
+
 h3 {
   font-family: arial;
   color: #000;
@@ -64,4 +70,9 @@ p {
 
 img {
   margin-top: 25px;
+}
+
+label {
+  font-size: 12px;
+  font-family: helvetica;
 }
