@@ -7,7 +7,7 @@ function CarsService() {
         })
     }
 
-    this.getCar = function(){
+    this.getCars = function(){
         return new Promise(function(resolve, reject) {
             $.get(url).then(
                 function(data) {

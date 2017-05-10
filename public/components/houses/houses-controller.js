@@ -17,8 +17,10 @@ function HousesController() {
         }
 
         houseService.createHouse(house)
-            
-        houseService.getHouse() 
+    }
+
+    this.getHouses = function() {
+            houseService.getHouses() 
             .then(function(data) {
                 drawHouses(data)
             })

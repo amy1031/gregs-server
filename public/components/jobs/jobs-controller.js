@@ -21,6 +21,12 @@ function JobsController() {
                 drawJobs(data)
             })
     }
+    this.getJobs = function() {
+            jobService.getJobs() 
+            .then(function(data) {
+                drawJobs(data)
+            })
+    }
 
     function drawJobs(data) {
       //  debugger

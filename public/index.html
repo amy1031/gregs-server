@@ -20,9 +20,9 @@
         </div>
         <div class="row">
             <div class="col-xs-12 text-center">
-                <button type="button" class="btn btn-default" id="cars" onClick="app.controllers.carController.drawCars(cars)">Cars</button>
-                <button type="button" class="btn btn-default" id="houses" onClick="app.controllers.houseController.drawHouses(houses)">Houses</button>
-                <button type="button" class="btn btn-default" id="jobs" onClick="app.controllers.jobController.drawJobs(jobs)">Jobs</button>
+                <button type="button" class="btn btn-default" id="cars" onClick="app.controllers.carsController.getCars(cars)">Cars</button>
+                <button type="button" class="btn btn-default" id="houses" onClick="app.controllers.housesController.getHouses(houses)">Houses</button>
+                <button type="button" class="btn btn-default" id="jobs" onClick="app.controllers.jobsController.getJobs(jobs)">Jobs</button>
                 <hr>
             </div>
         </div>
@@ -177,14 +177,14 @@
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 
         <!-- SERVICES -->
-        <script src="cars/cars-service.js"></script>
-        <script src="houses/houses-service.js"></script>
-        <script src="jobs/jobs-service.js"></script>
+        <script src="./components/cars/cars-service.js"></script>
+        <script src="./components/houses/houses-service.js"></script>
+        <script src="./components/jobs/jobs-service.js"></script>
 
         <!-- CONTROLLERS -->
-        <script src="cars/cars-controller.js"></script>
-        <script src="houses/houses-controller.js"></script>
-        <script src="jobs/jobs-controller.js"></script>
+        <script src="./components/cars/cars-controller.js"></script>
+        <script src="./components/houses/houses-controller.js"></script>
+        <script src="./components/jobs/jobs-controller.js"></script>
     
         <script src="app.js"></script>
 </body>

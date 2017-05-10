@@ -7,7 +7,7 @@ function HousesService() {
         })
     }
 
-    this.getHouse = function(){
+    this.getHouses = function(){
         return new Promise(function(resolve, reject) {
             $.get(url).then(
                 function(data) {

@@ -1,7 +1,7 @@
 var app = {
   controllers: {
-    carController: new CarController(),
-    jobController: new JobController(),
-    houseController: new HouseController()
+    carController: new CarsController(),
+    jobController: new JobsController(),
+    houseController: new HousesController()
   }
 }

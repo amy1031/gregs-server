@@ -18,8 +18,10 @@ function CarsController() {
         }
 
         carService.createCar(car)
-            
-        carService.getCar() 
+    }
+
+    this.getCars = function() {
+        carService.getCars() 
             .then(function(data) {
                 drawCars(data)
             })
