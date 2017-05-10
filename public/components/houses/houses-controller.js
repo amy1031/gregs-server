@@ -37,7 +37,7 @@ function HousesController() {
                 <div class="col-xs-12 col-md-4">
                 <h2>${h.address}</h2>
                 <h3>${h.city}, ${h.state}</h3>
-                <h3>${h.beds} beds, ${h.state} baths</h3>
+                <h3>${h.beds} beds, ${h.baths} baths</h3>
                 </div>
         `
         }
