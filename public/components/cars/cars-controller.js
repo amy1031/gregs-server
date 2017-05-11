@@ -34,9 +34,10 @@ function CarsController() {
         for(var i = 0; i < data.length; i++) {
             var c = data[i];
              template += `
-                <div class="col-xs-12 col-md-4">
+                <div class="col-xs-12 col-sm-4">
                 <h2>${c.year} ${c.make} ${c.model}</h2>
-                <p>${c.description}</p>
+                <h3>$ ${c.price}</h3>
+                <p class="description">${c.description}</p>
                 </div>
         `
         }

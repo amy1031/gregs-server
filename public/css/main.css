@@ -26,6 +26,14 @@ h2.form {
   font-size: 30px;
 }
 
+h2.form a, h2 a:hover {
+  color: #000;
+  border: 1px solid #000;
+  padding-right: 7px;
+  padding-left: 7px;
+  text-decoration: none;
+}
+
 h3 {
   font-family: arial;
   color: #000;
@@ -68,6 +76,10 @@ p {
   margin-bottom: 10px;
 }
 
+p.description {
+  text-align: center;
+}
+
 img {
   margin-top: 25px;
 }
@@ -75,4 +87,33 @@ img {
 label {
   font-size: 12px;
   font-family: helvetica;
+}
+
+.navbar, .navbar-header {
+  background-color: transparent;
+  border: 0px;
+}
+
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
+
+.navbar .navbar-collapse {
+  text-align: center;
+}
+
+.navbar-nav > li {
+  font-size: 20px;
+  font-family: Rajdhani;
+  font-size: 22px;
+  text-transform: uppercase;
+  width: 200px;
+  margin-bottom: 5px;
+  color: #000;
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu > li, .navbar-default .navbar-nav .open .dropdown-menu {
+  width: 200px;
 }

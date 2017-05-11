@@ -19,14 +19,66 @@
                 <hr>
             </div>
         </div>
-        <div class="row">
+    </div>
+
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cars <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" onClick="app.controllers.carController.getCars()">Find Cars</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#postcar">Post Your Car</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Houses <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" onClick="app.controllers.houseController.getHouses()">Find Houses</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#posthouse">Post Your House</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Jobs <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" onClick="app.controllers.jobController.getJobs()">Find Jobs</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#postjob">Post Your Job</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+
+    <div class="container">
+        <!-- <div class="row">
             <div class="col-xs-12 text-center">
                 <button type="button" class="btn btn-default" id="cars" onClick="app.controllers.carController.getCars(cars)">Cars</button>
                 <button type="button" class="btn btn-default" id="houses" onClick="app.controllers.houseController.getHouses(houses)">Houses</button>
                 <button type="button" class="btn btn-default" id="jobs" onClick="app.controllers.jobController.getJobs(jobs)">Jobs</button>
                 <hr>
             </div>
-        </div>
+        </div> -->
         <div class="row">
             <div class="col-xs-12" id="cars-list"></div>
         </div>
@@ -40,153 +92,275 @@
         </div>
         <hr>
         <div class="row">
-            <div class="col-xs-12 col-md-4"><br>
-                <h2 class="form">Add Car</h2>
-                <form onsubmit="app.controllers.carController.createCar(event)">
-                    <div class="form-group">
-                        <label for="make">Make</label>
-                        <input type="text" class="form-control" name="make" required>
+            <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+                <div id="postcar" class="panel-collapse collapse" role="tabpanel" aria-labelledby="postcar">
+                    <div class="well">
+                        <h2 class="form">Add Car <span class="pull-right"><a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#postcar">X</a></span></h2>
+                        <form onsubmit="app.controllers.carController.createCar(event)">
+                            <div class="form-group">
+                                <label for="make">Make</label>
+                                <input type="text" class="form-control" name="make" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="model">Model</label>
+                                <input type="text" class="form-control" name="model" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="year">Year</label>
+                                <input type="number" class="form-control" name="year" min="1900" max="9999" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="doors">Doors</label>
+                                <input type="number" class="form-control" name="doors" min="1" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="type">Condition</label>
+                                <select class="form-control" name="condition" required>
+                            <option value="brand new">Brand New</option>
+                            <option value="like new">Like New</option>
+                            <option value="used">Used</option>
+                            <option value="parts">Parts</option>
+                        </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="color">Color</label>
+                                <input type="text" class="form-control" name="color" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="picture">Picture URL</label>
+                                <input type="text" class="form-control" name="picture" placeholder="jpeg, png, gif">
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea class="form-control" rows="3" name="description"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="price">Price</label>
+                                <input type="number" class="form-control" name="price" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact">Email address</label>
+                                <input type="email" class="form-control" name="email" required>
+                            </div>
+                            <button type="submit" class="btn btn-default">Submit</button>
+                        </form>
                     </div>
-                    <div class="form-group">
-                        <label for="model">Model</label>
-                        <input type="text" class="form-control" name="model" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="year">Year</label>
-                        <input type="number" class="form-control" name="year" min="1900" max="9999" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="doors">Doors</label>
-                        <input type="number" class="form-control" name="doors" min="1" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="condition">Condition</label>
-                        <input type="text" class="form-control" name="condition" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="color">Color</label>
-                        <input type="text" class="form-control" name="color" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="picture">Picture URL</label>
-                        <input type="text" class="form-control" name="picture" placeholder="jpeg, png, gif">
-                    </div>
-                    <div class="form-group">
-                        <label for="description">Description</label>
-                        <input type="text" class="form-control" name="description">
-                    </div>
-                    <div class="form-group">
-                        <label for="price">Price</label>
-                        <input type="number" class="form-control" name="price" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="contact">Email address</label>
-                        <input type="email" class="form-control" name="email" required>
-                    </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </form>
+                </div>
             </div>
-
-            <div class="col-xs-12 col-md-4">
-                <br>
-                <h2 class="form">Add House</h2>
-                <form onsubmit="app.controllers.houseController.createHouse(event)">
-                    <div class="form-group">
-                        <label for="address">Street Address</label>
-                        <input type="text" class="form-control" name="address" required>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+                <!-- <div class="collapse" id="posthouse"> -->
+                <div id="posthouse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="posthouse">
+                    <div class="well">
+                        <h2 class="form">Add House <span class="pull-right"><a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#posthouse">X</a></span></h2>
+                        <form onsubmit="app.controllers.houseController.createHouse(event)">
+                            <div class="form-group">
+                                <label for="address">Street Address</label>
+                                <input type="text" class="form-control" name="address" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <input type="text" class="form-control" name="city" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="state">State</label>
+                                <select class="form-control" name="state" required>
+                                <option value="Alabama">AL</option>
+                                <option value="Alaska">AK</option>
+                                <option value="Arizona">AZ</option>
+                                <option value="Arkansas">AR</option>
+                                <option value="California">CA</option>
+                                <option value="Colorado">CO</option>
+                                <option value="Connecticut">CT</option>
+                                <option value="Delaware">DE</option>
+                                <option value="Florida">FL</option>
+                                <option value="Georgia">GA</option>
+                                <option value="Hawaii">HI</option>
+                                <option value="Idaho">ID</option>
+                                <option value="Illinois">IL</option>
+                                <option value="Indiana">IN</option>
+                                <option value="Iowa">IA</option>
+                                <option value="Kansas">KS</option>
+                                <option value="Kentucky">KY</option>
+                                <option value="Louisiana">LA</option>
+                                <option value="Maine">ME</option>
+                                <option value="Maryland">MD</option>
+                                <option value="Massachusetts">MA</option>
+                                <option value="Michigan">MI</option>
+                                <option value="Minnesota">MN</option>
+                                <option value="Mississippi">MS</option>
+                                <option value="Missouri">MO</option>
+                                <option value="Montana">MT</option>
+                                <option value="Nebraska">NE</option>
+                                <option value="Nevada">NV</option>
+                                <option value="New Hampshire">NH</option>
+                                <option value="New Jersey">NJ</option>
+                                <option value="New Mexico">NM</option>
+                                <option value="New York">NY</option>
+                                <option value="North Carolina">NC</option>
+                                <option value="North Dakota">ND</option>
+                                <option value="Ohio">OH</option>
+                                <option value="Oklahoma">OK</option>
+                                <option value="Oregon">OR</option>
+                                <option value="Pennsylvania">PA</option>
+                                <option value="Rhode Island">RI</option>
+                                <option value="South Carolina">SC</option>
+                                <option value="South Dakota">SD</option>
+                                <option value="Tennessee">TN</option>
+                                <option value="Texas">TX</option>
+                                <option value="Utah">UT</option>
+                                <option value="Vermont">VT</option>
+                                <option value="Virginia">VA</option>
+                                <option value="Washington">WA</option>
+                                <option value="West Virginia">WV</option>
+                                <option value="Wisconsin">WI</option>
+                                <option value="Wyoming">WY</option>
+                        </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="beds">Beds</label>
+                                <input type="number" class="form-control" name="beds" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="baths">Baths</label>
+                                <input type="number" class="form-control" name="baths" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="price">Price</label>
+                                <input type="number" class="form-control" name="price" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="sqft">Square Feet</label>
+                                <input type="number" class="form-control" name="sqft" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea class="form-control" rows="3" name="description"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="picture">Picture URL</label>
+                                <input type="text" class="form-control" name="picture" placeholder="jpeg, png, gif">
+                            </div>
+                            <button type="submit" class="btn btn-default">Submit</button>
+                        </form>
                     </div>
-                    <div class="form-group">
-                        <label for="city">City</label>
-                        <input type="text" class="form-control" name="city" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="state">State</label>
-                        <input type="text" class="form-control" name="state" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="beds">Beds</label>
-                        <input type="number" class="form-control" name="beds" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="baths">Baths</label>
-                        <input type="number" class="form-control" name="baths" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="price">Price</label>
-                        <input type="number" class="form-control" name="price" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="sqft">Square Feet</label>
-                        <input type="number" class="form-control" name="sqft" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="description">Description</label>
-                        <textarea class="form-control" rows="3" name="description"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="picture">Picture URL</label>
-                        <input type="text" class="form-control" name="picture" placeholder="jpeg, png, gif">
-                    </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </form>
+                </div>
             </div>
-
-            <div class="col-xs-12 col-md-4">
-                <br>
-                <h2 class="form">Add Job</h2>
-                <form onsubmit="app.controllers.jobController.createJob(event)">
-                    <div class="form-group">
-                        <label for="title">Job Title</label>
-                        <input type="text" class="form-control" name="title" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="type">Job Type</label>
-                        <select class="form-control" name="type" required>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+                <div id="postjob" class="panel-collapse collapse" role="tabpanel" aria-labelledby="postjob">
+                    <div class="well">
+                        <h2 class="form">Add Job <span class="pull-right"><a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#postjob">X</a></span></h2>
+                        <form onsubmit="app.controllers.jobController.createJob(event)">
+                            <div class="form-group">
+                                <label for="title">Job Title</label>
+                                <input type="text" class="form-control" name="title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="type">Job Type</label>
+                                <select class="form-control" name="type" required>
                             <option value="Full-Time">Full Time</option>
                             <option value="Part-Time">Part Time</option>
                             <option value="Contractor">Contractor</option>
                         </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <input type="text" class="form-control" name="city" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="state">State</label>
+                                <select class="form-control" name="state" required>
+                                <option value="Alabama">AL</option>
+                                <option value="Alaska">AK</option>
+                                <option value="Arizona">AZ</option>
+                                <option value="Arkansas">AR</option>
+                                <option value="California">CA</option>
+                                <option value="Colorado">CO</option>
+                                <option value="Connecticut">CT</option>
+                                <option value="Delaware">DE</option>
+                                <option value="Florida">FL</option>
+                                <option value="Georgia">GA</option>
+                                <option value="Hawaii">HI</option>
+                                <option value="Idaho">ID</option>
+                                <option value="Illinois">IL</option>
+                                <option value="Indiana">IN</option>
+                                <option value="Iowa">IA</option>
+                                <option value="Kansas">KS</option>
+                                <option value="Kentucky">KY</option>
+                                <option value="Louisiana">LA</option>
+                                <option value="Maine">ME</option>
+                                <option value="Maryland">MD</option>
+                                <option value="Massachusetts">MA</option>
+                                <option value="Michigan">MI</option>
+                                <option value="Minnesota">MN</option>
+                                <option value="Mississippi">MS</option>
+                                <option value="Missouri">MO</option>
+                                <option value="Montana">MT</option>
+                                <option value="Nebraska">NE</option>
+                                <option value="Nevada">NV</option>
+                                <option value="New Hampshire">NH</option>
+                                <option value="New Jersey">NJ</option>
+                                <option value="New Mexico">NM</option>
+                                <option value="New York">NY</option>
+                                <option value="North Carolina">NC</option>
+                                <option value="North Dakota">ND</option>
+                                <option value="Ohio">OH</option>
+                                <option value="Oklahoma">OK</option>
+                                <option value="Oregon">OR</option>
+                                <option value="Pennsylvania">PA</option>
+                                <option value="Rhode Island">RI</option>
+                                <option value="South Carolina">SC</option>
+                                <option value="South Dakota">SD</option>
+                                <option value="Tennessee">TN</option>
+                                <option value="Texas">TX</option>
+                                <option value="Utah">UT</option>
+                                <option value="Vermont">VT</option>
+                                <option value="Virginia">VA</option>
+                                <option value="Washington">WA</option>
+                                <option value="West Virginia">WV</option>
+                                <option value="Wisconsin">WI</option>
+                                <option value="Wyoming">WY</option>
+                        </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea class="form-control" rows="3" name="description"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="logo">Company Logo</label>
+                                <input type="text" class="form-control" name="logo" placeholder="jpeg, png, gif">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Contact Email</label>
+                                <input type="email" class="form-control" name="email" required>
+                            </div>
+                            <button type="submit" class="btn btn-default">Submit</button>
+                        </form>
                     </div>
-                    <div class="form-group">
-                        <label for="city">City</label>
-                        <input type="text" class="form-control" name="city" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="state">State</label>
-                        <input type="text" class="form-control" name="state" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="description">Description</label>
-                        <textarea class="form-control" rows="3" name="description"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="logo">Company Logo</label>
-                        <input type="text" class="form-control" name="logo" placeholder="jpeg, png, gif">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Contact Email</label>
-                        <input type="email" class="form-control" name="email" required>
-                    </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </form>
+                </div>
             </div>
 
         </div>
+    </div>
 
-        <!-- SCRIPTS -->
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <!-- SCRIPTS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-        <!-- SERVICES -->
-        <script src="./components/cars/cars-service.js"></script>
-        <script src="./components/houses/houses-service.js"></script>
-        <script src="./components/jobs/jobs-service.js"></script>
+    <!-- SERVICES -->
+    <script src="./components/cars/cars-service.js"></script>
+    <script src="./components/houses/houses-service.js"></script>
+    <script src="./components/jobs/jobs-service.js"></script>
 
-        <!-- CONTROLLERS -->
-        <script src="./components/cars/cars-controller.js"></script>
-        <script src="./components/houses/houses-controller.js"></script>
-        <script src="./components/jobs/jobs-controller.js"></script>
-    
-        <script src="app.js"></script>
+    <!-- CONTROLLERS -->
+    <script src="./components/cars/cars-controller.js"></script>
+    <script src="./components/houses/houses-controller.js"></script>
+    <script src="./components/jobs/jobs-controller.js"></script>
+
+    <script src="app.js"></script>
 </body>
 
 </html>
